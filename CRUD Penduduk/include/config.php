@@ -2,9 +2,9 @@
 class Database
 {
   private $host = "localhost";
-  private $user = "v3421096_dewa2";
-  private $pass = "123";
-  private $db = "v3421096_db_warga";
+  private $user = "root";
+  private $pass = "";
+  private $db = "db_warga";
   public $conn;
   public function __construct()
   {
@@ -76,7 +76,7 @@ class warga
   public $tanggal_lahir;
   public $golongan_darah;
 
-  // setter
+  // fungsi setter
   function setter($nik, $nama, $jenis_kelamin, $alamat, $status, $pekerjaan, $kewarganegaraan, $tempat_lahir, $tanggal_lahir, $golongan_darah)
   {
     $this->nik = $nik;
@@ -91,7 +91,7 @@ class warga
     $this->golongan_darah = $golongan_darah;
   }
 
-  // getter
+  // fungsi getter
   function get_nik()
   {
     return $this->nik;
@@ -162,14 +162,13 @@ class warga
 }
 
 if (isset($_POST['submit'])) {
-  // instanciate object
   $warga = new Warga();
   $database = new Database();
 
-  // set properti
+  // setting properties
   $warga->setter($_POST['nik'], $_POST['nama'], $_POST['jenis_kelamin'], $_POST['alamat'], $_POST['status'], $_POST['pekerjaan'], $_POST['kewarganegaraan'], $_POST['tempat_lahir'], $_POST['tanggal_lahir'], $_POST['golongan_darah']);
 
-  // insert database
+  // masukkan database
   $database->insert($warga->get_nik(), $warga->get_nama(), $warga->get_jenis_kelamin(), $warga->get_alamat(), $warga->get_status(), $warga->get_pekerjaan(), $warga->get_kewarganegaraan(), $warga->get_tempat_lahir(), $warga->get_tanggal_lahir(), $warga->get_golongan_darah(), $warga->classify_age(), $warga->calculate_age());
 }
 

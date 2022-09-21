@@ -30,6 +30,11 @@ include('./include/config.php')
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
+
+  <div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+  </div>
+  
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->

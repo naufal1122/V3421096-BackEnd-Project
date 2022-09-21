@@ -17,8 +17,13 @@ include('./include/config.php');
   <link rel="stylesheet" href="./dist/css/adminlte.min.css" />
 </head>
 
+
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
+
+  <div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+  </div>
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark">
       <!-- Left navbar links -->
@@ -248,11 +253,12 @@ include('./include/config.php');
 
       <!-- Main content -->
       <main>
+      <div class="col-xs-auto col-md-auto">
         <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Tabel Penduduk</h3>
           </div>
-          <div class="card-body">
+          <div class="table-responsive">
             <table id="example2" class="table table-bordered table-hover">
               <thead>
                 <tr>
@@ -291,12 +297,13 @@ include('./include/config.php');
                   echo "<td>" . $row['tanggal_lahir'] . " (" . $row['umur'] . " tahun)" . "</td>";
                   echo "<td>" . $row['golongan_darah'] . "</td>";
                   echo "<td>" . $row['klasifikasi'] . "</td>";
-                  echo "<td><a href='delete-form.php?id=" . $row['id'] . "'class='btn btn-danger'>Hapus</a><a class='btn btn-success ml-1' href='edit-form.php?id=" . $row['id'] . "'>Edit</a></td>";
+                  echo "<td><a href='delete-form.php?id=" . $row['id'] . "'class='btn btn-danger'>Hapus</a><br><br><a class='btn btn-success ml-1' href='edit-form.php?id=" . $row['id'] . "'>Edit</a></td>";
                   echo "</tr>";
                 }
                 ?>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </main>
